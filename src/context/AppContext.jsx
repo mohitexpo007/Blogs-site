@@ -8,4 +8,6 @@ function AppContextProvider({children}){
   const[page,setpage]=useState(1);
   const[posts,setpost]=useState([]);
   const[totalpages,settotalpages]=useState(null);
+
+  
 }
