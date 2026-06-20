@@ -6,5 +6,6 @@ export const AppContext=createContext();
 function AppContextProvider({children}){
   const[loading,setloading]=useState(false);
   const[page,setpage]=useState(1);
-  const[]
+  const[posts,setpost]=useState([]);
+  const[totalpages,settotalpages]=useState(null);
 }
