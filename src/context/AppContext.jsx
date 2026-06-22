@@ -10,9 +10,15 @@ function AppContextProvider({children}){
   const[posts,setpost]=useState([]);
   const[totalpages,settotalpages]=useState(null);
 
-  async function fetchdata(page=1){
+  async function fetchdata(page=1,tag=null,category){
     let url=`${baseUrl}?page=${page}`;
     setloading(true);
+    if(tag){
+      url+=`&tag=${tag}`
+    }
+    if(category){
+      url+=`&category=${category}`
+    }
     try{
       const res=await fetch(url);
       const output=await res.json();

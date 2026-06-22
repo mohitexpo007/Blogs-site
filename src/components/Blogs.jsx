@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 function Blogs(){
   const {loading,posts,fetchdata}=useContext(AppContext);
   return(
-    <div  className="w-11/12 max-w-[680px] py-8 flex flex-col gap-y-7 mt-[66px] mb-[70px]">
+    <div  className="w-11/12 max-w-[680px] py-8 flex flex-col gap-y-7 mt-[66px] mb-[70px] justify-center items-center h-screen ">
       {loading ? (<Spinner></Spinner>) :
       
       posts.map( (post) => (
