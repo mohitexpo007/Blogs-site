@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createContext } from "react";
 import {baseUrl} from "../baseUrl";
+import { useNavigate } from "react-router-dom";
 
 export const AppContext=createContext();
 
@@ -9,6 +10,7 @@ function AppContextProvider({children}){
   const[page,setpage]=useState(1);
   const[posts,setpost]=useState([]);
   const[totalpages,settotalpages]=useState(null);
+  const navigate=useNavigate();
 
   async function fetchdata(page=1,tag=null,category){
     let url=`${baseUrl}?page=${page}`;
@@ -25,7 +27,6 @@ function AppContextProvider({children}){
       setpage(output.page);
       setpost(output.posts);
       settotalpages(output.totalPages);
-      console.log(output);
     }
     catch(error){
       setpage(1);
@@ -38,7 +39,7 @@ function AppContextProvider({children}){
 
   function pagechangehandler(page){
     setpage(page);
-    fetchdata(page);
+    navigate({search : `?page=${page}`})
   }
 
   const value={
